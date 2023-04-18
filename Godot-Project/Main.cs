@@ -10,6 +10,7 @@ public class Main : Node
     public int TotalScore = 0;
     public float MobMinSpeed = 200f;
     public float MobMaxSpeed = 250f;
+    public bool gameState = true;
 
     private Random rand = new Random();
 
@@ -30,6 +31,7 @@ public class Main : Node
         var GameOverMusic = (AudioStreamPlayer) GetNode("GameOver");
         var Music = (AudioStreamPlayer) GetNode("Music");
 
+        gameState = false;
         //Mob.EmitSignal(nameof(EraseMob));
         Music.Stop();
         GameOverMusic.Play();
@@ -51,6 +53,7 @@ public class Main : Node
         var startTimer = (Timer) GetNode("StartTimer");
         var startPosition = (Position2D) GetNode("StartPosition");
         
+        gameState = true;
         Music.Play();
         Player.Start(startPosition.Position);
         startTimer.Start();

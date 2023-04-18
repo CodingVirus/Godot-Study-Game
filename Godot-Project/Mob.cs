@@ -17,6 +17,7 @@ public class Mob : RigidBody2D
 
     public override void _Process(float delta)
     {
+        GD.Print(Name);
         if ((bool)parent.Get("gameState") == false)
         {
             this.QueueFree();
